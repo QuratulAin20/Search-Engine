@@ -8,10 +8,6 @@ from langchain_community.tools import ArxivQueryRun,WikipediaQueryRun,DuckDuckGo
 from langchain.agents import initialize_agent ,AgentType
 from langchain.callbacks import StreamlitCallbackHandler
 
-# Load environment variables
-load_dotenv()
-os.environ["HF-TOKEN"] = os.getenv("HF-TOKEN")
-api_key = os.environ["GROQ-TOKEN"] = os.getenv("GROQ-TOKEN")
 
 # Initializing the Tools
 arxiv_wrapper = ArxivAPIWrapper(top_k_results = 1 , doc_content_chars_max=200)
@@ -29,13 +25,14 @@ In this example, we are using the 'StreamlitCallBackHandler' to display the thou
 Try more streamlit Agent examples at [github.com/langchain-ai/streamlit-agent]
 
 """
+# Sidebar for Groq API-KEY
+st.sidebar.title("Settings")
+api_key = st.sidebar.text_input("Enter your Groq API-Key:",type="password")
+
 if "messages" not in st.session_state:
     st.session_state["messages"]=[
         {"role":"assistant","content":"HI, I am chatbot who can search for you, How can I help you"}
-
-
     ]
-
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg['content'])
 
