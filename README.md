@@ -1,4 +1,4 @@
-#AI-Powered Search Engine with LangChain and Groq Integration
+# AI-Powered Search Engine with LangChain and Groq Integration
 ![Information Retrieval System](https://pfst.cf2.poecdn.net/base/image/0890c2059a1a8bb9edd32894aa6732054906d577a2460d0b4ed2adf3446ee4d3?w=1024&h=1024&pmaid=187754509)
 
 
